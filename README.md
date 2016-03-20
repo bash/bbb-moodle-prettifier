@@ -5,4 +5,19 @@
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 [![Build](https://img.shields.io/badge/build%20system-make-brightgreen.svg)](Makefile)
 
-This is the official GitHub repository of the **bbb-moodle-prettifier** extension for Chrome.
+
+# Building
+
+```bash
+npm install
+make
+
+# if you want to build the dark theme do this instead:
+MDL_THEME_VERSION=dark make -B
+```
+
+# Releasing
+```bash
+make prepare-release
+make release
+```
