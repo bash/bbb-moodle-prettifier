@@ -2,8 +2,6 @@
  * (c) 2015 Ruben Schmidmeister
  */
 
-import { getCSS } from '../css/get-css'
-
 /**
  *
  * @param {string} key
@@ -15,8 +13,6 @@ import { getCSS } from '../css/get-css'
 export function handleWrite (key, value, storage, runtimeStorage, messageBackend) {
   if (key === 'color') {
     storage.set('color', value)
-    runtimeStorage.delete('css')
-
-    return getCSS(storage, runtimeStorage).then((css) => messageBackend.pushCSS(css))
+    messageBackend.pushColor(value)
   }
 }

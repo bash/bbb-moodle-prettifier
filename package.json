@@ -19,6 +19,8 @@
   "devDependencies": {
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
+    "less": "^2.6.1",
+    "less-plugin-clean-css": "^1.5.1",
     "socket.io": "^1.4.5",
     "standard": "^6.0.5"
   },
@@ -33,5 +35,8 @@
       "chrome",
       "less"
     ]
+  },
+  "dependencies": {
+    "color-js": "git+https://github.com/brehaut/color-js.git#40cbbe38b02fa2af5ada1ecda8909592cae34b79"
   }
 }

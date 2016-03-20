@@ -46,7 +46,6 @@
   "background": {
     "persistent": false,
     "scripts": [
-      "vendor/less.js",
       "js/background.js"
     ]
   }

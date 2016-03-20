@@ -33,14 +33,6 @@ export class MessageBackend extends Emitter {
 
   /**
    *
-   * @param {string} css
-   */
-  pushCSS (css) {
-    this.push('css', css)
-  }
-
-  /**
-   *
    * @param {string} color
    */
   pushColor (color) {

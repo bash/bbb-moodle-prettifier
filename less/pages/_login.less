@@ -1,6 +1,6 @@
 .loginbox {
   form {
-    background: @color-main;
+    background: var(--mdl-user-color);
 
     p {
       color: #fff;
@@ -17,14 +17,14 @@
   }
 
   div.error {
-    background-color: darken(@color-main, 30%);
+    background-color: var(--mdl-user-color-darker-30);
   }
 
   input[type="submit"] {
-    background-color: darken(@color-main, 20%);
+    background-color: var(--mdl-user-color-darker-20);
 
     &:hover {
-      background-color: darken(@color-main, 10%);
+      background-color: var(--mdl-user-color-darker-10);
     }
   }
 }

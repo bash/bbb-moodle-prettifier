@@ -9,7 +9,7 @@ body.prettifier-options {
 
   h1 {
     font-weight: 500;
-    color: @color-main;
+    color: var(--mdl-user-color);
   }
 
   textarea {
@@ -192,10 +192,10 @@ body.prettifier-options {
     }
 
     &:checked + label {
-      border-color: @color-main;
+      border-color: var(--mdl-user-color);
 
       &:before {
-        background-color: @color-main;
+        background-color: var(--mdl-user-color);
         transform: translateX(100%);
       }
     }

@@ -5,15 +5,25 @@
 SHELL := /bin/bash
 PATH  := ./node_modules/.bin:$(PATH)
 
+LESS_FILES = $(shell find less -name "*.less")
+JS_FILES = $(shell find src -name "*.js")
+
+JS_BUNDLE = build/js/background.js \
+		 	build/js/inject.js \
+			build/js/options.js
+
+BUNDLE = $(JS_BUNDLE)
+
 .PHONY: all release
 
-all: build/js/background.js \
-	 build/js/inject.js \
-	 build/js/options.js
+all: $(BUNDLE)
 
-build/js/%.js: src/%.js $(shell find src -name "*.js")
+build/js/%.js: src/%.js data/css.json $(JS_FILES)
 	mkdir -p $(dir $@)
 	browserify $< --transform babelify -o $@
+
+data/css.json: $(LESS_FILES)
+	lessc -clean-css less/main.less | ./util/jsonify.js css > $@
 
 release:
 	@echo "Preparing Release"

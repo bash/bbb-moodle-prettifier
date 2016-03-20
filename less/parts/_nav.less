@@ -6,17 +6,17 @@ div#menu {
   // An active menuentry
   > ul > li > a:hover span,
   > ul > li > a:focus span {
-    color: @color-main;
+    color: var(--mdl-user-color);
     transform: none;
   }
 
   // Subnav
   li.has-sub > ul {
-    border-top-color: @color-main !important;
+    border-top-color: var(--mdl-user-color) !important;
 
     // An active/hovered menu item in the subnav
     > li > a:hover {
-      color: @color-main;
+      color: var(--mdl-user-color);
     }
   }
 }

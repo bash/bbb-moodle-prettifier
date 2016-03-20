@@ -46,19 +46,8 @@ export class DataBackend extends Emitter {
     this.port.postMessage({ action: 'write', key: 'color', value: color })
   }
 
-  pushGetCss () {
-    this._pushGet('css')
-  }
-
   pushGetColor () {
     this._pushGet('color')
-  }
-
-  /**
-   * @returns {Promise<String>}
-   */
-  getCSS () {
-    return this._get('css')
   }
 
   /**
