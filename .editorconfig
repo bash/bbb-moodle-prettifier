@@ -1,5 +1,7 @@
 [*]
 indent_style = space
+end_of_line = lf
+insert_final_newline = true
 
 [*.{js,html,less,json,css}]
 indent_size = 2

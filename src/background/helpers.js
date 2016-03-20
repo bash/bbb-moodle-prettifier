@@ -5,7 +5,6 @@
 import { wrapFunction } from '../utilities/wrap-function'
 import { handleWrite } from '../background/handle-write'
 
-
 /**
  *
  * @param {chrome.storage.StorageArea} storage

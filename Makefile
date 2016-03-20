@@ -14,7 +14,7 @@ JS_BUNDLE = build/js/background.js \
 
 BUNDLE = $(JS_BUNDLE)
 
-.PHONY: all release
+.PHONY: all release lint
 
 all: $(BUNDLE)
 
@@ -31,3 +31,7 @@ release:
 	@rm -f build/release.zip
 	@zip build/release.zip $(shell find ./build)
 	@sh util/publish.sh
+
+lint:
+	standard src/**/*.js
+	standard util/**/*.js
