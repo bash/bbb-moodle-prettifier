@@ -9,11 +9,10 @@
  * @param {Injector} injector
  */
 export function injectStyle (head, style, injector) {
-  function appendStyle () {
-    head.appendChild(style)
-  }
+  const appendStyle = () => head.appendChild(style)
+  const observer = new MutationObserver(appendStyle)
 
-  let observer = new MutationObserver(appendStyle)
+  //noinspection JSCheckFunctionSignatures
   observer.observe(head, { childList: true })
 
   appendStyle()
