@@ -1,0 +1,27 @@
+.color-pick {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  margin: 5px 10px;
+  width: 90px;
+
+  .color {
+    width: 3.75em;
+    height: 3.75em;
+    border-radius: 100%;
+    display: block;
+    margin: auto;
+    transition: box-shadow .3s, border .3s;
+    border: 2px solid currentColor;
+  }
+
+  &.-active .color {
+    border-width: 1.875em;
+  }
+
+  label {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 30px;
+  }
+}

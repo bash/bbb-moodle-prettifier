@@ -5,17 +5,16 @@
 import { wrapElement } from '../helpers/wrap-element'
 
 class _ColorPick extends HTMLElement {
-  // noinspection JSUnusedGlobalSymbols
   createdCallback () {
     let $template = this.ownerDocument.querySelector('template#color-pick')
     this.appendChild(document.importNode($template.content, true))
 
-    let $pick = this.querySelector('.pick')
+    let $color = this.querySelector('.color')
 
-    $pick.style.color = this.color
-    $pick.addEventListener('click', () => this.dataBackend.setColor(this.color))
+    $color.style.color = this.color
+    $color.addEventListener('click', () => this.dataBackend.setColor(this.color))
 
-    this.querySelector('label').innerText = this.label
+    this.querySelector('.label').innerText = this.label
 
     this.dataBackend.on('color', (color) => {
       this.active = (this.color === color)
@@ -27,12 +26,12 @@ class _ColorPick extends HTMLElement {
    * @param {boolean} active
    */
   set active (active) {
-    var $color = this.querySelector('.color')
+    var $color = this.querySelector('.color-pick')
 
     if (active) {
-      $color.classList.add('active')
+      $color.classList.add('-active')
     } else {
-      $color.classList.remove('active')
+      $color.classList.remove('-active')
     }
   }
 
