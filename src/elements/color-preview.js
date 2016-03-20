@@ -5,10 +5,9 @@
 import { wrapElement } from '../helpers/wrap-element'
 
 class _ColorPreview extends HTMLElement {
-  // noinspection JSUnusedGlobalSymbols
   createdCallback () {
     this.dataBackend.on('color', (color) => {
-      this.querySelector('.preview').style.color = color
+      this.querySelector('.color').style.color = color
     })
   }
 }

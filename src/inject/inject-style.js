@@ -12,7 +12,7 @@ export function injectStyle (head, style, injector) {
   const appendStyle = () => head.appendChild(style)
   const observer = new MutationObserver(appendStyle)
 
-  //noinspection JSCheckFunctionSignatures
+  // noinspection JSCheckFunctionSignatures
   observer.observe(head, { childList: true })
 
   appendStyle()

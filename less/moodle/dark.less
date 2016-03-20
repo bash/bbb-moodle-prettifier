@@ -1,0 +1,106 @@
+//
+// This theme is still experimental and not ready for release
+//
+
+@import 'main';
+
+html, body {
+  background-color: #2f3238;
+}
+
+html, body {
+  color: #fff;
+}
+
+.linkbox {
+  background-color: transparent;
+  border: none;
+
+  i, p, a {
+    color: #fff;
+  }
+}
+
+#header1 #topbar {
+  background-color: var(--mdl-user-color);
+  border: none;
+}
+
+#header1 p#topText {
+  color: #fff;
+}
+
+#header1 ul.social-icons > li i,
+#header1 ul.social-icons > li i:hover {
+  color: #fff;
+}
+
+#logo img {
+  visibility: hidden;
+}
+
+#logo {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9Ijk0cHgiIGhlaWdodD0iMzNweCIgdmlld0JveD0iMCAwIDk0IDMzIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggMy40LjQgKDE3MjQ5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5BcnRib2FyZCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+CiAgICAgICAgPGcgaWQ9IkFydGJvYXJkLTMiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIGZvbnQtc2l6ZT0iMjgiIGZvbnQtZmFtaWx5PSJSb2JvdG8iIGZpbGw9IiNGRkZGRkYiIGZvbnQtd2VpZ2h0PSJub3JtYWwiPgogICAgICAgICAgICA8dGV4dCBpZD0ibW9vZGxlIiBza2V0Y2g6dHlwZT0iTVNUZXh0TGF5ZXIiPgogICAgICAgICAgICAgICAgPHRzcGFuIHg9IjAiIHk9IjI2Ij5tb29kbGU8L3RzcGFuPgogICAgICAgICAgICA8L3RleHQ+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=);
+  background-size: auto 50%;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+input:not([type=image]), select, textarea {
+  border: none;
+}
+
+.block .header,
+.block div.header {
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.block_messages .info, .block_online_users .info {
+  color: #fff;
+}
+
+body#page-my-index #contentarea .course,
+body#page-site-index #contentarea .course {
+  border: none;
+}
+
+li.section {
+  border-bottom: none;
+
+  &:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.2) !important;
+  }
+}
+
+.section,
+li.section {
+  color: #fff !important;
+}
+
+li.section.current {
+  border: none;
+  --mdl-link-color: #fff;
+  --mdl-link-color-hover: #fff;
+  background-color: var(--mdl-user-color);
+}
+
+.course-content font[color] {
+  color: var(--mdl-user-color);
+}
+
+.box.generalbox p,
+.box.generalbox span,
+.box.generalbox ul,
+.box.generalbox li,
+.box.generalbox p *,
+.box.generalbox span *,
+.box.generalbox ul *,
+.box.generalbox li * {
+  background: none !important;
+  color: #fff !important;
+}
+
+.breadcrumb li a, .breadcrumb li a:visited {
+  color: #fff;
+}

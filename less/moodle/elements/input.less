@@ -1,0 +1,17 @@
+input.-no-inline,
+button.-no-inline,
+select.-no-inline {
+  margin-left: 0;
+  margin-top: 0;
+}
+
+input[type=file]::-webkit-file-upload-button {
+  .button();
+
+  margin-left: 30px;
+  transform: translateX(-30px);
+
+  &:focus {
+    outline: none;
+  }
+}

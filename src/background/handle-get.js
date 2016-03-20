@@ -13,7 +13,8 @@ import { defaultColor } from '../value/color'
  */
 export function handleGet (key, storage, runtimeStorage, messageBackend) {
   if (key === 'color') {
-    return storage.get('color', defaultColor.toString())
+    return storage
+      .get('color', defaultColor.toString())
       .then((color) => messageBackend.pushColor(color))
   }
 }

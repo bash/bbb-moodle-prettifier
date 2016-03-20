@@ -1,0 +1,23 @@
+.button() {
+  background-color: var(--mdl-user-color);
+  color: white;
+  box-shadow: none;
+  padding: 11px !important;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 4px;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  max-width: calc(100% - 20px);
+  text-overflow: ellipsis;
+  font-size: 15px;
+
+  &:hover {
+    background-color: var(--mdl-user-color-lighter-10);
+  }
+
+  &:active {
+    background-color: var(--mdl-user-color-darker-10);
+  }
+}
