@@ -5,58 +5,44 @@
 import { DataBackend } from './backends/data-backend'
 import { Injector } from './injector'
 import { injectStyle } from './inject/inject-style'
+import { injectFonts } from './inject/inject-fonts'
 import { injectQuickJumpTo } from './inject/inject-quick-jump-to'
 import { removeRedundantNodes } from './inject/remove-redundant-nodes'
+import { handleStyleUpdate } from './inject/handle-style-update'
 import { injectDownloadButton } from './inject/inject-download-button'
 
-(function () {
-  let injector, style, domReady
+let dataBackend = new DataBackend(chrome.runtime.connect())
+let injector = new Injector()
+let style = document.createElement('link')
+style.rel = 'stylesheet'
 
-  let dataBackend = new DataBackend(chrome.runtime.connect())
+let domReady = false
 
-  injector = new Injector()
-  style = document.createElement('style')
-  domReady = false
+dataBackend.on('css', (css) => {
+  style = handleStyleUpdate(style, css, domReady)
+})
 
-  // register event handlers
-  dataBackend.on('css', (css) => {
-    if (!domReady) {
-      style.innerHTML = css
-      return
-    }
+dataBackend.pushGetCss()
 
-    let newStyle = document.createElement('style')
-    newStyle.innerHTML = css
+injector.on('head', (head) => {
+  console.log("We found the monsters's head!")
 
-    if (style.parentNode) {
-      style.parentNode.appendChild(newStyle)
-      style.parentNode.removeChild(style)
-    }
+  injectStyle(head, style, injector)
+  injectFonts(head)
+})
 
-    style = newStyle
-  })
+injector.on('nodeAdded', removeRedundantNodes)
 
-  dataBackend.pushGetCss()
+injector.on('domReady', () => {
+  domReady = true
 
-  injector.on('head', (head) => {
-    console.log("We found the monsters's head!")
+  injectStyle(document.head, style, injector)
+  injectQuickJumpTo(document)
+  injectDownloadButton(document, dataBackend)
 
-    injectStyle(head, style, injector)
-  })
+  Array.from(document.querySelectorAll('.linkbox a'))
+    .filter(($a) => $a.target === '_blank')
+    .forEach(($a) => $a.removeAttribute('target'))
+})
 
-  injector.on('nodeAdded', removeRedundantNodes)
-
-  injector.on('domReady', () => {
-    domReady = true
-
-    injectStyle(document.head, style, injector)
-    injectQuickJumpTo(document)
-    injectDownloadButton(document, dataBackend)
-
-    Array.from(document.querySelectorAll('.linkbox a'))
-      .filter(($a) => $a.target === '_blank')
-      .forEach(($a) => $a.removeAttribute('target'))
-  })
-
-  injector.run(document)
-})()
+injector.run(document)

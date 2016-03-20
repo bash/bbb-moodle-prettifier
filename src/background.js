@@ -36,4 +36,4 @@ messageBackend.on('message', (msg) => {
   console.warn('invalid message action', msg)
 })
 
-window.mdl = helpers(storage, runtimeStorage, messageBackend)
+window.$mdl = helpers(storage, runtimeStorage, messageBackend)

@@ -7,7 +7,9 @@ PATH  := ./node_modules/.bin:$(PATH)
 
 .PHONY: all release
 
-all: build/js/background.js build/js/inject.js build/js/options.js
+all: build/js/background.js \
+	 build/js/inject.js \
+	 build/js/options.js
 
 build/js/%.js: src/%.js $(shell find src -name "*.js")
 	mkdir -p $(dir $@)
