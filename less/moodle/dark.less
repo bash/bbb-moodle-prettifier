@@ -1,5 +1,15 @@
+//
+// This theme is still experimental and not ready for release
+//
+
+@import 'main';
+
 html, body {
   background-color: #2f3238;
+}
+
+html, body {
+  color: #fff;
 }
 
 .linkbox {
@@ -38,4 +48,59 @@ html, body {
 
 input:not([type=image]), select, textarea {
   border: none;
+}
+
+.block .header,
+.block div.header {
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.block_messages .info, .block_online_users .info {
+  color: #fff;
+}
+
+body#page-my-index #contentarea .course,
+body#page-site-index #contentarea .course {
+  border: none;
+}
+
+li.section {
+  border-bottom: none;
+
+  &:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.2) !important;
+  }
+}
+
+.section,
+li.section {
+  color: #fff !important;
+}
+
+li.section.current {
+  border: none;
+  --mdl-link-color: #fff;
+  --mdl-link-color-hover: #fff;
+  background-color: var(--mdl-user-color);
+}
+
+.course-content font[color] {
+  color: var(--mdl-user-color);
+}
+
+.box.generalbox p,
+.box.generalbox span,
+.box.generalbox ul,
+.box.generalbox li,
+.box.generalbox p *,
+.box.generalbox span *,
+.box.generalbox ul *,
+.box.generalbox li * {
+  background: none !important;
+  color: #fff !important;
+}
+
+.breadcrumb li a, .breadcrumb li a:visited {
+  color: #fff;
 }

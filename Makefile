@@ -17,7 +17,7 @@ JS_BUNDLE = build/js/background.js \
 
 BUNDLE = $(JS_BUNDLE) build/css/prettifier.css
 
-.PHONY: all release lint
+.PHONY: all prepare-release release lint
 
 all: $(BUNDLE)
 
@@ -25,12 +25,27 @@ build/js/%.js: src/%.js data/css.json $(JS_FILES)
 	mkdir -p $(dir $@)
 	browserify $< --transform babelify -o $@
 
-data/css.json: $(COMMON_LESS_FILES) $(MOODLE_LESS_FILES)
+data/default-css.json: $(COMMON_LESS_FILES) $(MOODLE_LESS_FILES)
 	lessc -clean-css less/moodle/main.less | ./util/jsonify.js css > $@
+
+data/dark-css.json: $(COMMON_LESS_FILES) $(MOODLE_LESS_FILES)
+	lessc -clean-css less/moodle/dark.less | ./util/jsonify.js css > $@
+
+data/css.json: data/default-css.json data/dark-css.json
+	rm -rf $@
+ifeq ($(MDL_THEME_VERSION),dark)
+	ln -s dark-css.json $@
+else
+	ln -s default-css.json $@
+endif
 
 build/css/prettifier.css: $(COMMON_LESS_FILES) $(PRETTIFIER_LESS_FILES)
 	@mkdir -p $(dir $@)
 	lessc -clean-css less/prettifier/main.less > $@
+
+prepare-release:
+	make -B
+	sh util/google-signin.sh
 
 release:
 	@echo "Preparing Release"

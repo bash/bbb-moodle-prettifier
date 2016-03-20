@@ -122,4 +122,4 @@ export class Color {
  *
  * @type {Color}
  */
-export const defaultColor = Color.parse('#31d64c')
+export const defaultColor = Color.parse('#2ecc71')
