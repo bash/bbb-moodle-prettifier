@@ -5,14 +5,17 @@
 SHELL := /bin/bash
 PATH  := ./node_modules/.bin:$(PATH)
 
-LESS_FILES = $(shell find less -name "*.less")
+COMMON_LESS_FILES = $(shell find less/common -name "*.less")
+MOODLE_LESS_FILES = $(shell find less/moodle -name "*.less")
+PRETTIFIER_LESS_FILES = $(shell find less/prettifier -name "*.less")
+
 JS_FILES = $(shell find src -name "*.js")
 
 JS_BUNDLE = build/js/background.js \
 		 	build/js/inject.js \
 			build/js/options.js
 
-BUNDLE = $(JS_BUNDLE)
+BUNDLE = $(JS_BUNDLE) build/css/prettifier.css
 
 .PHONY: all release lint
 
@@ -22,8 +25,12 @@ build/js/%.js: src/%.js data/css.json $(JS_FILES)
 	mkdir -p $(dir $@)
 	browserify $< --transform babelify -o $@
 
-data/css.json: $(LESS_FILES)
-	lessc -clean-css less/main.less | ./util/jsonify.js css > $@
+data/css.json: $(COMMON_LESS_FILES) $(MOODLE_LESS_FILES)
+	lessc -clean-css less/moodle/main.less | ./util/jsonify.js css > $@
+
+build/css/prettifier.css: $(COMMON_LESS_FILES) $(PRETTIFIER_LESS_FILES)
+	@mkdir -p $(dir $@)
+	lessc -clean-css less/prettifier/main.less > $@
 
 release:
 	@echo "Preparing Release"

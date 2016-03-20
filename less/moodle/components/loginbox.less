@@ -1,19 +1,24 @@
 .loginbox {
   form {
     background: var(--mdl-user-color);
+  }
 
-    p {
-      color: #fff;
-      font-size: 1.2em;
-    }
+  form p {
+    color: #fff;
+    font-size: 1.2em;
+  }
 
-    div.leftarea .inputarea {
-      height: 100px;
+  form input,
+  form textarea {
+    border: none;
+  }
 
-      div input[type="text"] {
-        margin-right: 0;
-      }
-    }
+  form div.leftarea .inputarea {
+    height: 100px;
+  }
+
+  form div.leftarea .inputarea div input[type="text"] {
+    margin-right: 0;
   }
 
   div.error {
