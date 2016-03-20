@@ -1,0 +1,37 @@
+{
+  "name": "bbb-moodle-prettifier",
+  "version": "2.9.6",
+  "description": "This will make your ugly Moodle shiny!",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bash/bbb-moodle-prettifier.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bash/bbb-moodle-prettifier/issues"
+  },
+  "homepage": "https://github.com/bash/bbb-moodle-prettifier#readme",
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
+    "socket.io": "^1.4.5",
+    "standard": "^6.0.5"
+  },
+  "standard": {
+    "ignore": [
+      "build/**/*.js"
+    ],
+    "env": {
+      "browser": true
+    },
+    "globals": [
+      "chrome",
+      "less"
+    ]
+  }
+}

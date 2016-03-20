@@ -1,0 +1,90 @@
+input:not([type=image]), select, textarea {
+  padding: 10px !important;
+  margin: 4px;
+  display: inline-block;
+  font-size: 15px;
+  border: 2px solid #ddd;
+  border-radius: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.button {
+  background-color: @color-main;
+  color: white;
+  box-shadow: none;
+  padding: 11px !important;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 4px;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  max-width: calc(100% - 20px);
+  text-overflow: ellipsis;
+  font-size: 15px;
+
+  &:hover {
+    background-color: lighten(@color-main, 10);
+  }
+
+  &:active {
+    background-color: darken(@color-main, 10);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.mform .btn-cancel {
+  color: @color-main;
+
+  &:hover {
+    color: darken(@color-main, 10);
+  }
+
+  &:active,
+  &:focus {
+    color: darken(@color-main, 20);
+    box-shadow: none;
+  }
+}
+
+a.button {
+  display: inline-block;
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+input[type=button], input[type=submit], button, .button,
+div.singlebutton form input[type="submit"] {
+  .button;
+}
+
+input[type=file]::-webkit-file-upload-button:extend(button) {
+  margin-left: 30px;
+  transform: translateX(-30px);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input.-no-inline,
+button.-no-inline,
+select.-no-inline {
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.loginbox form input,
+.loginbox form textarea {
+  border: none;
+}

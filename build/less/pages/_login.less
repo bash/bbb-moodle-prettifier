@@ -1,0 +1,30 @@
+.loginbox {
+  form {
+    background: @color-main;
+
+    p {
+      color: #fff;
+      font-size: 1.2em;
+    }
+
+    div.leftarea .inputarea {
+      height: 100px;
+
+      div input[type="text"] {
+        margin-right: 0;
+      }
+    }
+  }
+
+  div.error {
+    background-color: darken(@color-main, 30%);
+  }
+
+  input[type="submit"] {
+    background-color: darken(@color-main, 20%);
+
+    &:hover {
+      background-color: darken(@color-main, 10%);
+    }
+  }
+}

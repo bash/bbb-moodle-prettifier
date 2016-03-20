@@ -1,0 +1,27 @@
+div#menu {
+  > ul > li > a {
+    font-weight: 300;
+  }
+
+  // An active menuentry
+  > ul > li > a:hover span,
+  > ul > li > a:focus span {
+    color: @color-main;
+    transform: none;
+  }
+
+  // Subnav
+  li.has-sub > ul {
+    border-top-color: @color-main !important;
+
+    // An active/hovered menu item in the subnav
+    > li > a:hover {
+      color: @color-main;
+    }
+  }
+}
+
+// Removes the ugly shadow
+.shadow1 {
+  display: none;
+}

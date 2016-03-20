@@ -1,0 +1,8 @@
+[*]
+indent_style = space
+
+[*.{js,html,less,json,css}]
+indent_size = 2
+
+[Makefile]
+indent_style = tab

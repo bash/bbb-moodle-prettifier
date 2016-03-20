@@ -1,0 +1,53 @@
+{
+  "manifest_version": 2,
+  "name": "BBB Moodle Prettifier (BETA)",
+  "short_name": "Moodle Prettifier",
+  "homepage_url": "https://github.com/bash/bbb-moodle-prettifier",
+  "version": "2.9.6",
+  "description": "🌟 it will make your ugly moodle shine",
+  "permissions": [
+    "https://moodle.bbbaden.ch/*",
+    "http://moodle.bbbaden.ch/*",
+    "tabs",
+    "background",
+    "storage",
+    "downloads"
+  ],
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": [
+        "https://moodle.bbbaden.ch/*",
+        "http://moodle.bbbaden.ch/*"
+      ],
+      "js": [
+        "js/inject.js"
+      ]
+    }
+  ],
+  "icons": {
+    "128": "logo.png"
+  },
+  "web_accessible_resources": [
+    "html/options.html",
+    "less/*",
+    "vendor/less.js"
+  ],
+  "options_ui": {
+    "chrome_style": false,
+    "page": "html/options.html"
+  },
+  "page_action": {
+    "default_icon": {
+      "128": "logo.png"
+    },
+    "default_popup": "html/options.html"
+  },
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "vendor/less.js",
+      "js/background.js"
+    ]
+  }
+}
