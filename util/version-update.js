@@ -9,7 +9,7 @@ const fs = require('fs')
 const readline = require('readline')
 const spawn = require('child_process').spawn
 
-const manifestFile = path.join(__dirname, '..', 'build', 'manifest.json')
+const manifestFile = path.join(__dirname, '..', 'manifest.json')
 const packageFile = path.join(__dirname, '..', 'package.json')
 
 const manifest = require(manifestFile)

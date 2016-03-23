@@ -15,11 +15,18 @@ JS_BUNDLE = build/js/background.js \
 		 	build/js/inject.js \
 			build/js/options.js
 
-BUNDLE = $(JS_BUNDLE) build/css/prettifier.css data.json
+BUNDLE = $(JS_BUNDLE) \
+		 build/css/prettifier.css \
+		 build/html/options.html \
+		 build/manifest.json \
+		 build/logo.png \
+		 data.json
 
-.PHONY: all prepare-release release lint
+.PHONY: all clean prepare-release release lint
 
 all: $(BUNDLE)
+clean:
+	rm -rf $(BUNDLE) data/css.json data/*-css.json build/css/ build/js/ build/release.zip
 
 build/js/%.js: src/%.js data/css.json $(JS_FILES)
 	mkdir -p $(dir $@)
@@ -46,6 +53,19 @@ build/css/prettifier.css: $(COMMON_LESS_FILES) $(PRETTIFIER_LESS_FILES)
 data.json: data.dist.json
 	cat $+ > $@
 
+build/html/options.html: html/options.html
+	@mkdir -p $(dir $@)
+	cat $+ > $@
+
+build/manifest.json: manifest.json
+	@mkdir -p $(dir $@)
+	cat $+ > $@
+
+build/logo.png: assets/logo.png
+	@mkdir -p $(dir $@)
+	rm -rf $@
+	cp $+ $@
+
 prepare-release:
 	make -B
 	sh util/google-signin.sh
@@ -53,6 +73,7 @@ prepare-release:
 release:
 	@echo "Preparing Release"
 	@node util/version-update.js
+	@make
 	@rm -f build/release.zip
 	@zip build/release.zip $(shell find ./build)
 	@sh util/publish.sh

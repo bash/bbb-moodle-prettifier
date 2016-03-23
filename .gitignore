@@ -1,7 +1,5 @@
 /node_modules/
-/build/js/
-/build/css/
-/build/release.zip
+/build/
 /data.json
 /data/css.json
 /data/*-css.json
