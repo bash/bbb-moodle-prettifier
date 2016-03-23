@@ -3,7 +3,7 @@
   "name": "BBB Moodle Prettifier",
   "short_name": "Moodle Prettifier",
   "homepage_url": "https://github.com/bash/bbb-moodle-prettifier",
-  "version": "2.9.8",
+  "version": "3.0.0",
   "description": "🌟 it will make your ugly moodle shine",
   "permissions": [
     "https://moodle.bbbaden.ch/*",
