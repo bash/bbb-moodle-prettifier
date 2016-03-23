@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /*
  * (c) 2016 Ruben Schmidmeister <ruby@fog.im>
  */
