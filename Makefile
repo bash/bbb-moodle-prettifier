@@ -70,7 +70,7 @@ prepare-release:
 release:
 	@rm -f build/release.zip
 	@zip build/release.zip $(shell find ./build)
-	#@sh util/publish.sh
+	@sh util/publish.sh
 
 lint:
 	standard src/**/*.js
