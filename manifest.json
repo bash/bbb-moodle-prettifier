@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "BBB Moodle Prettifier (BETA)",
+  "name": "BBB Moodle Prettifier",
   "short_name": "Moodle Prettifier",
   "homepage_url": "https://github.com/bash/bbb-moodle-prettifier",
-  "version": "2.9.8",
+  "version": "3.0.0",
   "description": "🌟 it will make your ugly moodle shine",
   "permissions": [
     "https://moodle.bbbaden.ch/*",
@@ -29,9 +29,7 @@
     "128": "logo.png"
   },
   "web_accessible_resources": [
-    "html/options.html",
-    "less/*",
-    "vendor/less.js"
+    "html/options.html"
   ],
   "options_ui": {
     "chrome_style": false,

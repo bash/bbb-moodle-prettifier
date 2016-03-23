@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 #
 # (c) 2016 Ruben Schmidmeister <ruby@fog.im>
