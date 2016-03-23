@@ -8,15 +8,29 @@
 
 # Building
 
+### First Build
+
 ```bash
+cp data.dist.json data.json
 npm install
 make
+```
 
-# if you want to build the dark theme do this instead:
+### Rebuild after changes
+
+```bash
+make
+```
+
+### Build dark theme
+```bash
 MDL_THEME_VERSION=dark make -B
 ```
 
 # Releasing
+
+Add your **googleClientId** and **googleClientSecret** to [data.json](data.dist.json)
+
 ```bash
 make prepare-release
 make release

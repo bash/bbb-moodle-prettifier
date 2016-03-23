@@ -19,14 +19,13 @@ BUNDLE = $(JS_BUNDLE) \
 		 build/css/prettifier.css \
 		 build/html/options.html \
 		 build/manifest.json \
-		 build/logo.png \
-		 data.json
+		 build/logo.png
 
 .PHONY: all clean prepare-release release lint
 
 all: $(BUNDLE)
 clean:
-	rm -rf $(BUNDLE) data/css.json data/*-css.json build/css/ build/js/ build/release.zip
+	rm -rf build/ data/css.json data/*-css.json
 
 build/js/%.js: src/%.js data/css.json $(JS_FILES)
 	mkdir -p $(dir $@)
@@ -49,9 +48,6 @@ endif
 build/css/prettifier.css: $(COMMON_LESS_FILES) $(PRETTIFIER_LESS_FILES)
 	@mkdir -p $(dir $@)
 	lessc -clean-css less/prettifier/main.less > $@
-
-data.json: data.dist.json
-	cat $+ > $@
 
 build/html/options.html: html/options.html
 	@mkdir -p $(dir $@)
@@ -76,7 +72,7 @@ release:
 	@make
 	@rm -f build/release.zip
 	@zip build/release.zip $(shell find ./build)
-	@sh util/publish.sh
+	#@sh util/publish.sh
 
 lint:
 	standard src/**/*.js
