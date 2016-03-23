@@ -15,7 +15,7 @@ JS_BUNDLE = build/js/background.js \
 		 	build/js/inject.js \
 			build/js/options.js
 
-BUNDLE = $(JS_BUNDLE) build/css/prettifier.css
+BUNDLE = $(JS_BUNDLE) build/css/prettifier.css data.json
 
 .PHONY: all prepare-release release lint
 
@@ -42,6 +42,9 @@ endif
 build/css/prettifier.css: $(COMMON_LESS_FILES) $(PRETTIFIER_LESS_FILES)
 	@mkdir -p $(dir $@)
 	lessc -clean-css less/prettifier/main.less > $@
+
+data.json: data.dist.json
+	cat $+ > $@
 
 prepare-release:
 	make -B
