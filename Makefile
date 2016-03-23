@@ -63,13 +63,11 @@ build/logo.png: assets/logo.png
 	cp $+ $@
 
 prepare-release:
+	node util/version-update.js
 	make -B
 	sh util/google-signin.sh
 
 release:
-	@echo "Preparing Release"
-	@node util/version-update.js
-	@make
 	@rm -f build/release.zip
 	@zip build/release.zip $(shell find ./build)
 	#@sh util/publish.sh
