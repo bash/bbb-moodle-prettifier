@@ -1,7 +1,7 @@
 {
   "name": "bbb-moodle-prettifier",
   "version": "3.0.0",
-  "description": "This will make your ugly Moodle shiny!",
+  "description": "🌟 it will make your ugly moodle shine",
   "main": "index.js",
   "scripts": {
     "test": "standard"
@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/bash/bbb-moodle-prettifier/issues"
   },
-  "homepage": "https://github.com/bash/bbb-moodle-prettifier#readme",
+  "homepage": "https://github.com/bash/bbb-moodle-prettifier",
   "devDependencies": {
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
@@ -32,8 +32,7 @@
       "browser": true
     },
     "globals": [
-      "chrome",
-      "less"
+      "chrome"
     ]
   },
   "dependencies": {
