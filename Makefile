@@ -32,12 +32,15 @@ build/js/%.js: src/%.js data/css.json $(JS_FILES)
 	browserify $< --transform babelify -o $@
 
 data/default-css.json: $(COMMON_LESS_FILES) $(MOODLE_LESS_FILES)
+	mkdir -p $(dir $@)
 	lessc -clean-css less/moodle/main.less | ./util/jsonify.js css > $@
 
 data/dark-css.json: $(COMMON_LESS_FILES) $(MOODLE_LESS_FILES)
+	mkdir -p $(dir $@)
 	lessc -clean-css less/moodle/dark.less | ./util/jsonify.js css > $@
 
 data/css.json: data/default-css.json data/dark-css.json
+	mkdir -p $(dir $@)
 	rm -rf $@
 ifeq ($(MDL_THEME_VERSION),dark)
 	ln -s dark-css.json $@
