@@ -13,7 +13,7 @@ import { parseUrl } from '../utilities/parse-url'
 export function showHidePageAction (tabId, changeInfo, tab) {
   let url = parseUrl(tab.url)
 
-  if (url.host === 'moodle.bbbaden.ch') {
+  if (url.host === 'moodle.bbbaden.ch' || url.host === 'moodle-stage.bbbaden.ch') {
     chrome.pageAction.show(tab.id)
   }
 }

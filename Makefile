@@ -28,29 +28,21 @@ clean:
 	rm -rf build/ data/css.json data/*-css.json
 
 build/js/%.js: src/%.js data/css.json $(JS_FILES)
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	browserify $< --transform babelify -o $@
 
 data/default-css.json: $(COMMON_LESS_FILES) $(MOODLE_LESS_FILES)
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	lessc -clean-css less/moodle/main.less | ./util/jsonify.js css > $@
 
-data/dark-css.json: $(COMMON_LESS_FILES) $(MOODLE_LESS_FILES)
-	mkdir -p $(dir $@)
-	lessc -clean-css less/moodle/dark.less | ./util/jsonify.js css > $@
-
-data/css.json: data/default-css.json data/dark-css.json
-	mkdir -p $(dir $@)
+data/css.json: data/default-css.json
+	@mkdir -p $(dir $@)
 	rm -rf $@
-ifeq ($(MDL_THEME_VERSION),dark)
-	ln -s dark-css.json $@
-else
 	ln -s default-css.json $@
-endif
 
 build/css/prettifier.css: $(COMMON_LESS_FILES) $(PRETTIFIER_LESS_FILES)
 	@mkdir -p $(dir $@)
-	lessc -clean-css less/prettifier/main.less > $@
+	lessc --strict-units=on --strict-math=on -clean-css less/prettifier/main.less > $@
 
 build/html/options.html: html/options.html
 	@mkdir -p $(dir $@)

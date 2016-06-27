@@ -1,23 +1,28 @@
 .button() {
-  background-color: var(--mdl-user-color);
-  color: white;
+  background-color: transparent;
+  color: #000;
+  border: 2px solid currentColor;
+  border-radius: 2rem;
   box-shadow: none;
-  padding: 11px !important;
+  padding: 11px 32px !important;
   text-transform: uppercase;
   cursor: pointer;
   margin: 4px;
-  border: none;
-  border-radius: 0;
   overflow: hidden;
   max-width: calc(100% - 20px);
   text-overflow: ellipsis;
   font-size: 15px;
+  font-weight: 600;
 
   &:hover {
-    background-color: var(--mdl-user-color-lighter-10);
+    background-color: transparent;
+    color: var(--mdl-user-color);
   }
 
-  &:active {
-    background-color: var(--mdl-user-color-darker-10);
+  &:active,
+  &:focus {
+    outline: none;
+    background-color: transparent;
+    color: var(--mdl-user-color-darker-10);
   }
 }
