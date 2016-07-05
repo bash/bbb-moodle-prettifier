@@ -21,7 +21,7 @@ BUNDLE = $(JS_BUNDLE) \
 		 build/manifest.json \
 		 build/logo.png
 
-.PHONY: all clean prepare-release release lint
+.PHONY: all clean prepare-release release lint package
 
 all: $(BUNDLE)
 clean:
@@ -62,9 +62,11 @@ prepare-release:
 	make -B
 	sh util/google-signin.sh
 
-release:
+package:
 	@rm -f build/release.zip
 	@zip build/release.zip $(shell find ./build)
+
+release: package
 	@sh util/publish.sh
 
 lint:
