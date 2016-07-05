@@ -2,13 +2,27 @@
   font-family: 'Raleway', sans-serif !important;
 }
 
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+}
+
+li {
+  line-height: inherit;
+}
+
 .fa {
   //noinspection CssNoGenericFontName
   font-family: FontAwesome !important;
 }
 
-a {
+a, a:visited, a.active, a:focus, #page-mod-scorm-player .breadcrumb-button a {
   .mdl-link();
+}
+
+a .fa {
+  color: var(--mdl-link-color);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  margin: 32px 0;
+  margin: 0 0 32px 0;
 }
 
 .content h3.sectionname {

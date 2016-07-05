@@ -1,0 +1,45 @@
+.block {
+  background-color: transparent;
+  border: none;
+}
+
+.block .header .title h2 {
+  display: flex;
+  align-items: center;
+}
+
+.block .header .title h2:before {
+  color: inherit;
+  background-color: transparent !important;
+  margin-top: 0;
+  margin-right: 6px;
+  padding-left: 0;
+  height: auto;
+}
+
+.block .header .title h2, .block h3.main {
+  color: #000;
+}
+
+.block_news_items .content ul li {
+  padding: 8px 0;
+  border-top: none;
+  border-bottom: 1px rgba(0, 0, 0, .05) solid;
+}
+
+.block_tree.list {
+  font-size: 15px;
+}
+
+// title on page /my
+#region-main .block .header .title {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  font-size: 32px;
+  margin-bottom: 32px;
+}
+
+#region-main .block .header .title h2:before {
+  display: none;
+}
