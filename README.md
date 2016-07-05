@@ -22,11 +22,6 @@ make
 make
 ```
 
-### Build dark theme
-```bash
-MDL_THEME_VERSION=dark make -B
-```
-
 # Releasing
 
 Add your **googleClientId** and **googleClientSecret** to [data.json](data.dist.json)
