@@ -16,7 +16,8 @@ export function injectQuickJumpTo (document) {
       return
     }
 
-    event.preventDefault();
+    event.preventDefault()
+
     window.location = `/course/view.php?id=${searchInput.value}`
   })
 }
