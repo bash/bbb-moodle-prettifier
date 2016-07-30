@@ -17,10 +17,16 @@
   },
   "homepage": "https://github.com/bash/bbb-moodle-prettifier",
   "devDependencies": {
+    "babel-preset-es2015-rollup": "^1.1.1",
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
     "less": "^2.6.1",
     "less-plugin-clean-css": "^1.5.1",
+    "rollup": "^0.34.1",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-commonjs": "^3.3.1",
+    "rollup-plugin-json": "^2.0.1",
+    "rollup-plugin-uglify": "^1.0.1",
     "socket.io": "^1.4.5",
     "standard": "^6.0.5"
   },

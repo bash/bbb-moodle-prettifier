@@ -5,17 +5,17 @@
 SHELL := /bin/bash
 PATH  := ./node_modules/.bin:$(PATH)
 
-COMMON_LESS_FILES = $(shell find less/common -name "*.less")
-MOODLE_LESS_FILES = $(shell find less/moodle -name "*.less")
-PRETTIFIER_LESS_FILES = $(shell find less/prettifier -name "*.less")
+COMMON_LESS_FILES := $(shell find less/common -name "*.less")
+MOODLE_LESS_FILES := $(shell find less/moodle -name "*.less")
+PRETTIFIER_LESS_FILES := $(shell find less/prettifier -name "*.less")
 
-JS_FILES = $(shell find src -name "*.js")
-
-JS_BUNDLE = build/js/background.js \
+ROLLUP_CONFIG := .rollup.config.js
+JS_FILES := $(shell find src -name "*.js")
+JS_BUNDLE := build/js/background.js \
 		 	build/js/inject.js \
 			build/js/options.js
 
-BUNDLE = $(JS_BUNDLE) \
+BUNDLE := $(JS_BUNDLE) \
 		 build/css/prettifier.css \
 		 build/html/options.html \
 		 build/manifest.json \
@@ -28,8 +28,8 @@ clean:
 	rm -rf build/ data/css.json data/*-css.json
 
 build/js/%.js: src/%.js data/css.json $(JS_FILES)
-	@mkdir -p $(dir $@)
-	browserify $< --transform babelify -o $@
+	@mkdir -p $(@D)
+	rollup -c $(ROLLUP_CONFIG) -o $@ $<
 
 data/default-css.json: $(COMMON_LESS_FILES) $(MOODLE_LESS_FILES)
 	@mkdir -p $(dir $@)
