@@ -2,7 +2,7 @@
  * (c) 2015 Ruben Schmidmeister
  */
 
-import Color from 'color-js'
+import Color from '../../node_modules/color-js/color'
 
 /**
  *
