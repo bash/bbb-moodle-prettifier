@@ -24,8 +24,13 @@ BUNDLE := $(JS_BUNDLE) \
 .PHONY: all clean prepare-release release lint package
 
 all: $(BUNDLE)
+
 clean:
 	rm -rf build/ data/css.json data/*-css.json
+
+deps:
+	npm prune
+	npm install
 
 build/js/%.js: src/%.js data/css.json $(JS_FILES)
 	@mkdir -p $(@D)
