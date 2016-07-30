@@ -37,42 +37,41 @@ build/js/%.js: src/%.js data/css.json $(JS_FILES)
 	rollup -c $(ROLLUP_CONFIG) -o $@ $<
 
 data/default-css.json: $(COMMON_LESS_FILES) $(MOODLE_LESS_FILES)
-	@mkdir -p $(dir $@)
-	lessc -clean-css less/moodle/main.less | ./util/jsonify.js css > $@
+	@mkdir -p $(@D)
+	lessc --strict-units=on --strict-math=on less/moodle/main.less | cssnano | ./util/jsonify.js css > $@
 
 data/css.json: data/default-css.json
-	@mkdir -p $(dir $@)
-	rm -rf $@
-	ln -s default-css.json $@
+	@mkdir -p $(@D)
+	ln -sf default-css.json $@
 
 build/css/prettifier.css: $(COMMON_LESS_FILES) $(PRETTIFIER_LESS_FILES)
-	@mkdir -p $(dir $@)
+	@mkdir -p $(@D)
 	lessc --strict-units=on --strict-math=on -clean-css less/prettifier/main.less > $@
 
 build/html/options.html: html/options.html
-	@mkdir -p $(dir $@)
+	@mkdir -p $(@D)
 	cat $+ > $@
 
 build/manifest.json: manifest.json
-	@mkdir -p $(dir $@)
+	@mkdir -p $(@D)
 	cat $+ > $@
 
 build/logo.png: assets/logo.png
-	@mkdir -p $(dir $@)
-	rm -rf $@
+	@mkdir -p $(@D)
+	@rm -rf $@
 	cp $+ $@
 
 prepare-release:
 	node util/version-update.js
-	make -B
+	$(MAKE) -B
 	sh util/google-signin.sh
 
 package:
 	@rm -f build/release.zip
-	@zip build/release.zip $(shell find ./build)
+	zip build/release.zip $(shell find ./build)
 
 release: package
-	@sh util/publish.sh
+	sh util/publish.sh
 
 lint:
 	standard src/**/*.js
