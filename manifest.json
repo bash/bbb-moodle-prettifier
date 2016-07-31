@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "BBB Moodle Prettifier (BETA)",
-  "short_name": "Moodle Prettifier (BETA)",
+  "name": "BBB Moodle Prettifier",
+  "short_name": "Moodle Prettifier",
   "homepage_url": "https://github.com/bash/bbb-moodle-prettifier",
   "version": "4.0.0",
   "description": "🌟 it will make your ugly moodle shine",
