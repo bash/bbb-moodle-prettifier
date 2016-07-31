@@ -11,7 +11,9 @@
     "http://moodle.bbbaden.ch/*",
     "activeTab",
     "background",
-    "storage",
+    "storage"
+  ],
+  "optional_permissions": [
     "downloads"
   ],
   "content_scripts": [

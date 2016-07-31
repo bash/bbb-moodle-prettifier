@@ -30,7 +30,7 @@ dataBackend.on('color', (color) => updateColor(document, color))
 dataBackend.pushGetColor()
 
 injector.on('head', (head) => {
-  console.log("We found the monsters's head!")
+  console.log('We found the monsters\'s head!')
 
   injectStyle(head, style, injector)
   injectFonts(head)
