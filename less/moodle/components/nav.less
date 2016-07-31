@@ -1,0 +1,48 @@
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover,
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus,
+.navbar .nav li.dropdown.open > .dropdown-toggle,
+.navbar .nav li.dropdown.active > .dropdown-toggle,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+  background-color: var(--mdl-user-color);
+}
+
+.navbar {
+  background-color: #000;
+}
+
+.navbar-inner,
+.navbar #search input {
+  background-color: transparent;
+}
+
+.navbar #search input {
+  font-style: normal;
+  font-size: 14px;
+}
+
+.navbar .nav-divider-left {
+  display: none;
+}
+
+.navbar .dropdown-menu {
+  overflow: auto !important;
+  max-height: ~'calc(100vh - 54px - 64px)';
+  border-bottom: none;
+}
+
+.navbar .open > .dropdown-menu {
+  overflow: auto !important;
+}
+
+.navbar .dropdown-menu > li > a {
+  border-top: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.navbar .dropdown-menu > li > a:hover,
+.navbar .dropdown-menu > li > a:focus {
+  background-color: var(--mdl-user-color);
+}

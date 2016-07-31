@@ -1,0 +1,42 @@
+input:not([type=image])[type=button],
+input:not([type=image])[type=submit] {
+  .button();
+}
+
+.mdl-course-download-button {
+  margin-bottom: 24px;
+}
+
+// submit button
+button, .btn, .btn-default,
+input.form-submit, input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input.form-submit,
+input#id_submitbutton,
+input#id_submitbutton2,
+.path-admin .buttons input[type="submit"],
+td.submit input, .submit.buttons input[name="cancel"],
+#notice .singlebutton + .singlebutton input {
+  .button();
+}
+
+// "danger" button
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-cancel:hover,
+.btn-cancel:focus,
+.btn-cancel:active,
+.submit.buttons input[name="cancel"]:hover,
+.submit.buttons input[name="cancel"]:focus,
+.submit.buttons input[name="cancel"]:active,
+#notice .singlebutton + .singlebutton input:hover,
+#notice .singlebutton + .singlebutton input:focus,
+#notice .singlebutton + .singlebutton input:active,
+.btn-danger,
+.btn-cancel,
+.submit.buttons input[name="cancel"],
+#notice .singlebutton + .singlebutton input {
+  background-color: transparent !important;
+}

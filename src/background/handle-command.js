@@ -2,6 +2,8 @@
  * (c) 2015 Ruben Schmidmeister
  */
 
+import { ensurePermissions } from '../helpers/ensure-permissions'
+
 /**
  *
  * @param {string} command
@@ -15,5 +17,11 @@ export function handleCommand (command, params, storage, runtimeStorage, message
     return
   }
 
-  params.forEach((url) => chrome.downloads.download({ url: url }))
+  ensurePermissions([ 'downloads' ])
+    .then(() => {
+      params.forEach((url) => chrome.downloads.download({ url: url }))
+    })
+    .catch(() => {
+      console.error('user rejected download permissions')
+    })
 }

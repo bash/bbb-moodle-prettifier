@@ -1,35 +1,30 @@
 .loginbox {
-  form {
-    background: var(--mdl-user-color);
+  display: flex;
+  justify-content: center;
+
+  .loginpanel h2,
+  .loginpanel .subcontent,
+  .loginsub {
+    max-width: none;
   }
 
-  form p {
-    color: #fff;
-    font-size: 1.2em;
+  &.twocolumns .signuppanel,
+  .loginpanel .desc {
+    display: none;
   }
 
-  form input,
-  form textarea {
-    border: none;
+  .forgetpass,
+  #login {
+    background: none;
   }
 
-  form div.leftarea .inputarea {
-    height: 100px;
+  .loginform .form-input {
+    background: none;
+    padding: 0;
   }
 
-  form div.leftarea .inputarea div input[type="text"] {
-    margin-right: 0;
-  }
-
-  div.error {
-    background-color: var(--mdl-user-color-darker-30);
-  }
-
-  input[type="submit"] {
-    background-color: var(--mdl-user-color-darker-20);
-
-    &:hover {
-      background-color: var(--mdl-user-color-darker-10);
-    }
+  .loginform .form-input input {
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
 }

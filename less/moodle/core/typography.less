@@ -1,7 +1,49 @@
 * {
-  font-family: 'Roboto', sans-serif !important;
+  font-family: 'Raleway', sans-serif !important;
 }
 
-a {
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+}
+
+li {
+  line-height: inherit;
+}
+
+.fa {
+  //noinspection CssNoGenericFontName
+  font-family: FontAwesome !important;
+}
+
+a, a:visited, a.active, a:focus, #page-mod-scorm-player .breadcrumb-button a {
   .mdl-link();
+}
+
+a .fa {
+  color: var(--mdl-link-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #000;
+  font-weight: bold !important;
+}
+
+h1 {
+  margin: 0 0 32px 0;
+}
+
+.content h3.sectionname {
+  font-size: 32px;
+  padding: 0;
+  margin: 16px 0 32px 0;
+  background: none;
+  border: none;
+  color: #000;
+}
+
+.content .summary p {
+  font-size: 18px;
+  margin-bottom: 32px;
 }
