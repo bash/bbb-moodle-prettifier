@@ -6,7 +6,7 @@
  *
  * @type {Set}
  */
-const IDS = new Set([ 'sliderarea', 'footer', 'footerend' ])
+const IDS = new Set([ 'camera_wrap', 'page-footer' ])
 
 /**
  *

@@ -30,7 +30,7 @@ function createDownloadButton (document, dataBackend, label, filterFn) {
   let $button = document.createElement('button')
 
   $button.innerText = label
-  $button.className = '-no-inline'
+  $button.className = 'mdl-course-download-button -no-inline'
 
   $button.addEventListener('click', () => {
     dataBackend.download(getDownloadLinks(document, filterFn))

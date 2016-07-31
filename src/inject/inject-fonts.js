@@ -6,17 +6,17 @@
  *
  * @type {string}
  */
-const ROBOTO_URL = 'https://fonts.googleapis.com/css?family=Roboto:400,700,300,100'
+const FONT_URL = 'https://fonts.googleapis.com/css?family=Raleway:400,500,600,700'
 
 /**
  *
  * @param {HTMLHeadElement} head
  */
 export function injectFonts (head) {
-  let $roboto = document.createElement('link')
+  let $font = document.createElement('link')
 
-  $roboto.rel = 'stylesheet'
-  $roboto.href = ROBOTO_URL
+  $font.rel = 'stylesheet'
+  $font.href = FONT_URL
 
-  head.appendChild($roboto)
+  head.appendChild($font)
 }
