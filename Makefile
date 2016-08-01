@@ -2,14 +2,10 @@
 # (c) 2015 Ruben Schmidmeister <ruby@fog.im>
 #
 
-include .env
-
 SHELL := /bin/bash
 PATH  := ./node_modules/.bin:$(PATH)
 
-ifndef TARGET
-$(error TARGET must be set)
-endif
+TARGET ?= unknown
 
 COMMON_LESS_FILES := $(shell find less/common -name "*.less")
 MOODLE_LESS_FILES := $(shell find less/moodle -name "*.less")
@@ -30,12 +26,20 @@ BUNDLE := $(JS_BUNDLE) \
 		 build/$(TARGET)/manifest.json \
 		 build/$(TARGET)/logo.png
 
-.PHONY: all clean prepare-release release lint package
+.PHONY: all clean prepare-release release lint package chrome firefox all-targets
 
 all: $(BUNDLE)
 
 clean:
 	rm -rf build/ data/css.json data/*-css.json
+
+firefox:
+	TARGET=firefox $(MAKE)
+
+chrome:
+	TARGET=chrome $(MAKE)
+
+all-targets: firefox chrome
 
 deps:
 	npm prune

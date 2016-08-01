@@ -12,15 +12,21 @@ export function awaitHead () {
   console.log('creating mutation observer...')
 
   return new Promise((resolve) => {
+    const done = () => {
+      resolve()
+      observer.disconnect()
+    }
+    
     const observer = new MutationObserver((mutations) => {
+      if (document.head) {
+        return done()
+      }
+      
       mutations
-        .map((mutation) => Array.from(mutations.addedNodes))
+        .map((mutation) => Array.from(mutations.addedNodes || []))
         .reduce(flatten, [])
         .filter((node) => node.tagName === 'HEAD')
-        .forEach(() => {
-          resolve()
-          observer.disconnect()
-        })
+        .forEach(done)
     })
 
     observer.observe(document, { childList: true, subtree: true })
