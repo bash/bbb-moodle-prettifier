@@ -26,7 +26,7 @@ BUNDLE := $(JS_BUNDLE) \
 		 build/$(TARGET)/manifest.json \
 		 build/$(TARGET)/logo.png
 
-.PHONY: all clean prepare-release release lint package chrome firefox all-targets
+.PHONY: all clean prepare-release release lint package chrome opera firefox all-targets
 
 all: $(BUNDLE)
 
@@ -39,7 +39,10 @@ firefox:
 chrome:
 	TARGET=chrome $(MAKE)
 
-all-targets: firefox chrome
+opera:
+	TARGET=opera $(MAKE)
+
+all-targets: firefox chrome opera
 
 deps:
 	npm prune
