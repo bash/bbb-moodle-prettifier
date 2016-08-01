@@ -6,16 +6,11 @@
  *
  * @param {HTMLHeadElement} head
  * @param {HTMLStyleElement} style
- * @param {Injector} injector
  */
-export function injectStyle (head, style, injector) {
-  const appendStyle = () => head.appendChild(style)
-  const observer = new MutationObserver(appendStyle)
+export function injectStyle (head, style) {
+  const appendChild = () => head.appendChild(style)
 
-  // noinspection JSCheckFunctionSignatures
-  observer.observe(head, { childList: true })
+  appendChild()
 
-  appendStyle()
-
-  injector.on('domReady', () => observer.disconnect())
+  document.addEventListener('DOMContentLoaded', appendChild, { once: true })
 }

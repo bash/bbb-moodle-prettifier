@@ -27,7 +27,7 @@ export class MessageBackend extends Emitter {
     })
 
     port.onMessage.addListener((msg) => {
-      this.emit('message', msg)
+      this.emit('message', { msg, port })
     })
   }
 

@@ -9,9 +9,9 @@
     "https://moodle.bbbaden.ch/*",
     "https://moodle-stage.bbbaden.ch/*",
     "http://moodle.bbbaden.ch/*",
-    "activeTab",
     "background",
-    "storage"
+    "storage",
+    "downloads"
   ],
   "optional_permissions": [
     "downloads"
@@ -50,5 +50,13 @@
     "scripts": [
       "js/background.js"
     ]
+  },
+  "applications": {
+    "gecko": {
+      "id": "bbb-moodle-prettifier@rubys.ninja",
+      "strict_min_version": "42.0",
+      "strict_max_version": "50.*",
+      "update_url": "http://example.com"
+    }
   }
 }

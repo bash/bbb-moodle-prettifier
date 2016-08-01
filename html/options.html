@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8" />
   <link rel="stylesheet" href="../css/prettifier.css"/>
   <title>Options</title>
 
@@ -28,21 +29,24 @@
     <color-pick color="#714d87" label="Aubergine"></color-pick>
   </fieldset>
 
-  <fieldset>
-    <legend>HEX Input</legend>
+  <div>
+    <fieldset>
+      <legend>HEX Input</legend>
 
-    <input is="hex-input" type="text" />
-  </fieldset>
+      <input is="hex-input" type="text" />
+    </fieldset>
 
-  <fieldset>
-    <legend>Preview</legend>
+    <fieldset>
+      <legend>Preview</legend>
 
-    <color-preview class="color-pick -active">
-      <div class="color -preview"></div>
-    </color-preview>
-  </fieldset>
+      <color-preview class="color-pick -active">
+        <div class="color -preview"></div>
+      </color-preview>
+    </fieldset>
+  </div>
 </form>
 
+<script src="../js/polyfills.js"></script>
 <script src="../js/options.js"></script>
 </body>
 </html>

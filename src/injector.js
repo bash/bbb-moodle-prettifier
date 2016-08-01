@@ -15,11 +15,16 @@ export class Injector extends Emitter {
     this.observer = new MutationObserver((records) => {
       records.forEach((record) => {
         Array.from(record.addedNodes).forEach((node) => {
-          this.emit('nodeAdded', node)
-
-          if (node instanceof HTMLHeadElement) {
-            this.emit('head', node)
-          }
+          Promise.resolve().then(() => {
+            this.emit('nodeAdded', node)
+          })
+          
+          Promise.resolve.then(() => {
+            if (node instanceof HTMLHeadElement) {
+              this.emit('head', node)
+              this.observer.disconnect()
+            }
+          })
         })
       })
     })
