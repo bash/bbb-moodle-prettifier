@@ -31,7 +31,7 @@ BUNDLE := $(JS_BUNDLE) \
 all: $(BUNDLE)
 
 clean:
-	rm -rf build/ data/css.json data/*-css.json
+	rm -rf build/ data/css.json
 
 firefox:
 	TARGET=firefox $(MAKE)
@@ -52,13 +52,9 @@ build/$(TARGET)/js/%.js: src/%.js data/css.json $(JS_FILES)
 	@mkdir -p $(@D)
 	rollup -c $(ROLLUP_CONFIG) -o $@ $<
 
-data/default-css.json: $(COMMON_LESS_FILES) $(MOODLE_LESS_FILES)
+data/css.json: $(COMMON_LESS_FILES) $(MOODLE_LESS_FILES)
 	@mkdir -p $(@D)
-	lessc --strict-units=on --strict-math=on less/moodle/main.less | cssnano | ./util/jsonify.js css > $@
-
-data/css.json: data/default-css.json
-	@mkdir -p $(@D)
-	ln -sf default-css.json $@
+	lessc --strict-units=on --strict-math=on less/moodle/main.less | cssnano | ./scripts/jsonify.js css > $@
 
 build/$(TARGET)/css/prettifier.css: $(COMMON_LESS_FILES) $(PRETTIFIER_LESS_FILES)
 	@mkdir -p $(@D)
