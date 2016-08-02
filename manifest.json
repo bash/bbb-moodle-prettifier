@@ -35,10 +35,6 @@
   "web_accessible_resources": [
     "html/options.html"
   ],
-  "options_ui": {
-    "chrome_style": false,
-    "page": "html/options.html"
-  },
   "page_action": {
     "default_icon": {
       "128": "logo.png"

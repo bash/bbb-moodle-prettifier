@@ -14,35 +14,28 @@
 </head>
 <body class="options-page">
 <form>
+  <color-preview></color-preview>
 
-  <fieldset>
-    <legend>Color Presets</legend>
+  <div class="fieldset">
+    <div class="legend">Color Presets</div>
 
-    <color-pick color="#5b80e5" label="Tuxedo Blue"></color-pick>
-    <color-pick color="#2ecc71" label="Emerald"></color-pick>
-    <color-pick color="#cd005a" label="Vine"></color-pick>
-    <color-pick color="#a3cc1f" label="Lime"></color-pick>
-    <color-pick color="#ff69b4" label="Hot Pink"></color-pick>
-    <color-pick color="#ff3147" label="Cherry Red"></color-pick>
-    <color-pick color="#c6bda8" label="Gold"></color-pick>
-    <color-pick color="#b09067" label="Chestnut"></color-pick>
-    <color-pick color="#714d87" label="Aubergine"></color-pick>
-  </fieldset>
+    <div class="color-picks">
+      <color-pick color="#5b80e5" label="Tuxedo Blue"></color-pick>
+      <color-pick color="#2ecc71" label="Emerald"></color-pick>
+      <color-pick color="#cd005a" label="Vine"></color-pick>
+      <color-pick color="#a3cc1f" label="Lime"></color-pick>
+      <color-pick color="#ff69b4" label="Hot Pink"></color-pick>
+      <color-pick color="#ff3147" label="Cherry Red"></color-pick>
+      <color-pick color="#c6bda8" label="Gold"></color-pick>
+      <color-pick color="#b09067" label="Chestnut"></color-pick>
+      <color-pick color="#714d87" label="Aubergine"></color-pick>
+    </div>
+  </div>
 
-  <div>
-    <fieldset>
-      <legend>HEX Input</legend>
+  <div class="fieldset">
+    <div class="legend">HEX Input</div>
 
-      <input is="hex-input" type="text" />
-    </fieldset>
-
-    <fieldset>
-      <legend>Preview</legend>
-
-      <color-preview class="color-pick -active">
-        <div class="color -preview"></div>
-      </color-preview>
-    </fieldset>
+    <input is="hex-input" type="text" />
   </div>
 </form>
 
