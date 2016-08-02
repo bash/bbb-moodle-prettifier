@@ -49,10 +49,9 @@
   },
   "applications": {
     "gecko": {
-      "id": "bbb-moodle-prettifier@rubys.ninja",
+      "id": "bbb-moodle-prettifier-beta@rubys.ninja",
       "strict_min_version": "42.0",
-      "strict_max_version": "50.*",
-      "update_url": "http://example.com"
+      "strict_max_version": "50.*"
     }
   }
 }
