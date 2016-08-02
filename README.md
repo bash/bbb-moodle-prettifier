@@ -24,9 +24,12 @@ make
 
 # Releasing
 
-Add your **googleClientId** and **googleClientSecret** to [data.json](data.dist.json)
+Run
 
 ```bash
-make prepare-release
-make release
+./scripts/package.sh firefox
+./scripts/package.sh opera
+./scripts/package.sh chrome
 ```
+
+... and upload the files to the addon platforms.
