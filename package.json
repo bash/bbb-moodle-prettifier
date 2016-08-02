@@ -1,6 +1,6 @@
 {
   "name": "bbb-moodle-prettifier",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "🌟 it will make your ugly moodle shine",
   "main": "index.js",
   "scripts": {
