@@ -87,18 +87,6 @@ build/$(TARGET)/logo.png: assets/logo.png
 	@rm -rf $@
 	cp $+ $@
 
-prepare-release:
-	node util/version-update.js
-	$(MAKE) -B
-	sh util/google-signin.sh
-
-package:
-	@rm -f build/$(TARGET)/release.zip
-	zip build/$(TARGET)/release.zip $(shell find ./build)
-
-release: package
-	sh util/publish.sh
-
 lint:
 	standard src/**/*.js
 	standard util/**/*.js
