@@ -7,7 +7,7 @@ import cssData from '../data/css.json'
 import { DataBackend } from './backends/data-backend'
 
 import { createCssImport } from './helpers/create-css-import'
-import { awaitHead } from './helpers/await-head'
+import { awaitBody } from './helpers/await-body'
 import { injectStyle } from './inject/inject-style'
 import { injectFonts } from './inject/inject-fonts'
 import { injectQuickJumpTo } from './inject/inject-quick-jump-to'
@@ -29,12 +29,12 @@ dataBackend.on('color', (color) => updateColor(document, color))
 dataBackend.pushGetColor()
 dataBackend.showPageAction()
 
-awaitHead()
+awaitBody()
   .then(() => {
     console.log('We found the monsters\'s head!')
 
-    injectStyle(document.head, style)
-    injectFonts(document.head)
+    injectStyle(document.body, style)
+    injectFonts(document.body)
   })
 
 document.addEventListener('DOMContentLoaded', () => {

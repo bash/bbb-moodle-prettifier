@@ -2,7 +2,6 @@
  * (c) 2015 Ruben Schmidmeister
  */
 
-import { showHidePageAction } from './background/page-action'
 import { handleGet } from './background/handle-get'
 import { handleWrite } from './background/handle-write'
 import { handleCommand } from './background/handle-command'

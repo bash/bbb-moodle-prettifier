@@ -4,8 +4,8 @@
 
 const flatten = (a, b) => a.concat(b)
 
-export function awaitHead () {
-  if (document.head != null) {
+export function awaitBody () {
+  if (document.body != null) {
     return Promise.resolve()
   }
   
@@ -18,14 +18,14 @@ export function awaitHead () {
     }
     
     const observer = new MutationObserver((mutations) => {
-      if (document.head) {
+      if (document.body) {
         return done()
       }
       
       mutations
         .map((mutation) => Array.from(mutations.addedNodes || []))
         .reduce(flatten, [])
-        .filter((node) => node.tagName === 'HEAD')
+        .filter((node) => node.tagName === 'BODY')
         .forEach(done)
     })
 
