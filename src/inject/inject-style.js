@@ -4,11 +4,11 @@
 
 /**
  *
- * @param {HTMLHeadElement} head
+ * @param {HTMLElement} body
  * @param {HTMLStyleElement} style
  */
-export function injectStyle (head, style) {
-  const appendChild = () => head.appendChild(style)
+export function injectStyle (body, style) {
+  const appendChild = () => body.appendChild(style)
 
   appendChild()
 

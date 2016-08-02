@@ -9,7 +9,6 @@ export function awaitBody () {
     return Promise.resolve()
   }
   
-  console.log('creating mutation observer...')
 
   return new Promise((resolve) => {
     const done = () => {
