@@ -11,6 +11,10 @@ export function injectQuickJumpTo (document) {
   const searchInput = document.querySelector('#coursesearchbox')
   const number = /^[0-9]+$/
 
+  if (searchForm == null) {
+    return
+  }
+
   searchForm.addEventListener('submit', function (event) {
     if (!number.test(searchInput.value)) {
       return

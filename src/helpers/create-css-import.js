@@ -8,7 +8,7 @@ import { createCssBlob } from './create-css-blob'
  *
  * @param {HTMLDocument} document
  * @param {string} css
- * @returns {HTMLLinkElement}
+ * @returns {HTMLStyleElement}
  */
 export function createCssImport (document, css) {
   let $link = document.createElement('link')

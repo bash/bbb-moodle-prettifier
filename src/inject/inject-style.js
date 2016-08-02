@@ -4,18 +4,13 @@
 
 /**
  *
- * @param {HTMLHeadElement} head
+ * @param {HTMLElement} body
  * @param {HTMLStyleElement} style
- * @param {Injector} injector
  */
-export function injectStyle (head, style, injector) {
-  const appendStyle = () => head.appendChild(style)
-  const observer = new MutationObserver(appendStyle)
+export function injectStyle (body, style) {
+  const appendChild = () => body.appendChild(style)
 
-  // noinspection JSCheckFunctionSignatures
-  observer.observe(head, { childList: true })
+  appendChild()
 
-  appendStyle()
-
-  injector.on('domReady', () => observer.disconnect())
+  document.addEventListener('DOMContentLoaded', appendChild, { once: true })
 }

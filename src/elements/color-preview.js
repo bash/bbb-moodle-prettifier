@@ -7,7 +7,7 @@ import { wrapElement } from '../helpers/wrap-element'
 class _ColorPreview extends HTMLElement {
   createdCallback () {
     this.dataBackend.on('color', (color) => {
-      this.querySelector('.color').style.color = color
+      this.style.color = color
     })
   }
 }

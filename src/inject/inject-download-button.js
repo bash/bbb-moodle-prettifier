@@ -51,6 +51,10 @@ export function injectDownloadButton (document, dataBackend) {
 
   let $content = document.querySelector('.course-content')
 
+  if ($content == null) {
+    return
+  }
+
   let $button1 = createDownloadButton(document, dataBackend, 'Download All Files', allFilesFilter)
   let $button2 = createDownloadButton(document, dataBackend, 'Download Solution Files', solutionFilesFilter)
 

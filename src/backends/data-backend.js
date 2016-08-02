@@ -50,6 +50,10 @@ export class DataBackend extends Emitter {
     this._pushGet('color')
   }
 
+  showPageAction () {
+    this.port.postMessage({ action: 'command', command: 'showPageAction' })
+  }
+
   /**
    *
    * @param {string} key

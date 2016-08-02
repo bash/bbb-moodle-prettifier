@@ -10,13 +10,13 @@ const FONT_URL = 'https://fonts.googleapis.com/css?family=Raleway:400,500,600,70
 
 /**
  *
- * @param {HTMLHeadElement} head
+ * @param {HTMLElement} body
  */
-export function injectFonts (head) {
+export function injectFonts (body) {
   let $font = document.createElement('link')
 
   $font.rel = 'stylesheet'
   $font.href = FONT_URL
 
-  head.appendChild($font)
+  body.appendChild($font)
 }
