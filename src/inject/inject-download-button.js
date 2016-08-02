@@ -50,7 +50,7 @@ export function injectDownloadButton (document, dataBackend) {
   }
 
   let $content = document.querySelector('.course-content')
-  
+
   if ($content == null) {
     return
   }

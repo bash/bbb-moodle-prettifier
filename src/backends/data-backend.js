@@ -49,7 +49,7 @@ export class DataBackend extends Emitter {
   pushGetColor () {
     this._pushGet('color')
   }
-  
+
   showPageAction () {
     this.port.postMessage({ action: 'command', command: 'showPageAction' })
   }

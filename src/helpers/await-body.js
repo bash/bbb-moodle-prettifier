@@ -8,19 +8,18 @@ export function awaitBody () {
   if (document.body != null) {
     return Promise.resolve()
   }
-  
 
   return new Promise((resolve) => {
     const done = () => {
       resolve()
       observer.disconnect()
     }
-    
+
     const observer = new MutationObserver((mutations) => {
       if (document.body) {
         return done()
       }
-      
+
       mutations
         .map((mutation) => Array.from(mutations.addedNodes || []))
         .reduce(flatten, [])
