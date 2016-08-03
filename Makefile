@@ -26,12 +26,12 @@ BUNDLE := $(JS_BUNDLE) \
 		 build/$(TARGET)/manifest.json \
 		 build/$(TARGET)/logo.png
 
-.PHONY: all clean prepare-release release lint package chrome opera firefox all-targets
+.PHONY: all clean deps prepare-release release lint package chrome opera firefox all-targets
 
 all: $(BUNDLE)
 
 clean:
-	rm -rf build/ data/css.json
+	rm -rf build/ dist/ data/css.json
 
 firefox:
 	TARGET=firefox $(MAKE)

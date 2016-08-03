@@ -5,21 +5,38 @@
 [![WTFPL License](https://img.shields.io/badge/license-WTFPL-blue.svg)](LICENSE)
 [![Build](https://img.shields.io/badge/build%20system-make-brightgreen.svg)](Makefile)
 
+# Installing
+
+## Chrome
+
+Download the extension from the [Chrome Web Store](https://chrome.google.com/webstore/detail/bbb-moodle-prettifier/fbnoacnkmdhnmghankinjgbmlinjpkhg).
+
+## Firefox
+
+Download the extension from [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/bbb-moodle-prettifier/).
+
+## Opera
+
+Coming soon ...
 
 # Building
 
 ### First Build
 
 ```bash
-cp data.dist.json data.json
-npm install
-make
+make deps && make
 ```
 
 ### Rebuild after changes
 
 ```bash
 make
+```
+
+### Clean up built files
+
+```bash
+make clean
 ```
 
 # Releasing
