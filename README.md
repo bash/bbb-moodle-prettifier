@@ -11,13 +11,11 @@
 
 Download the extension from the [Chrome Web Store](https://chrome.google.com/webstore/detail/bbb-moodle-prettifier/fbnoacnkmdhnmghankinjgbmlinjpkhg).
 
-## Firefox
+## Firefox (pending approval)
 
 Download the extension from [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/bbb-moodle-prettifier/).
 
-## Opera
-
-Coming soon ...
+## Opera (coming soon)
 
 # Building
 
