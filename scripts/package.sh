@@ -11,7 +11,8 @@ tput setaf 2
 echo "Running make for ${TARGET} ..."
 tput sgr0
 
-TARGET="${TARGET}" make -B
+rm -rf ${BUILD_DIR}
+TARGET="${TARGET}" NODE_ENV="production" make -B
 
 tput setaf 2
 echo "Packaging extension for ${TARGET} ..."
