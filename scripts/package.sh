@@ -26,7 +26,7 @@ cd ${BUILD_DIR}
 zip "${CURRENT_DIR}/${BUILD_PACKAGE}" $(find ./*)
 cd ${CURRENT_DIR}
 
-zip "${CURRENT_DIR}/${SRC_PACKAGE}" $(find src) $(find less)
+git archive --format zip --output "${CURRENT_DIR}/${SRC_PACKAGE}" HEAD
 
 tput setaf 2
 echo "Build package generated: ${BUILD_PACKAGE}"
