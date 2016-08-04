@@ -33,7 +33,8 @@
     "128": "logo.png"
   },
   "web_accessible_resources": [
-    "html/options.html"
+    "html/options.html",
+    "fonts/*"
   ],
   "page_action": {
     "default_icon": {

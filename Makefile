@@ -11,6 +11,9 @@ COMMON_LESS_FILES := $(shell find less/common -name "*.less")
 MOODLE_LESS_FILES := $(shell find less/moodle -name "*.less")
 PRETTIFIER_LESS_FILES := $(shell find less/prettifier -name "*.less")
 
+FONT_SOURCES := $(wildcard fonts/*)
+FONT_BUILDS  := $(subst fonts,build/$(TARGET)/fonts,$(FONT_SOURCES))
+
 ROLLUP_CONFIG := .rollup.config.js
 JS_FILES := $(shell find src -name "*.js")
 JS_BUNDLE := build/$(TARGET)/js/background.js \
@@ -21,6 +24,7 @@ JS_BUNDLE := build/$(TARGET)/js/background.js \
 POLYFILLS := polyfills/CustomElements.js
 
 BUNDLE := $(JS_BUNDLE) \
+         $(FONT_BUILDS) \
 		 build/$(TARGET)/css/prettifier.css \
 		 build/$(TARGET)/html/options.html \
 		 build/$(TARGET)/manifest.json \
@@ -67,6 +71,11 @@ build/$(TARGET)/html/options.html: html/options.html
 build/$(TARGET)/manifest.json: manifest.json
 	@mkdir -p $(@D)
 	cat $+ > $@
+
+build/$(TARGET)/fonts/%: fonts/%
+	@mkdir -p $(@D)
+	@rm -f $@
+	cp $+ $@
 
 ifeq ($(TARGET),firefox)
 build/$(TARGET)/js/polyfills.js: $(POLYFILLS)

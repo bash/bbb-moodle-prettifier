@@ -2,6 +2,8 @@
  * (c) 2015 Ruben Schmidmeister
  */
 
+import { createCssImport } from '../helpers/create-css-import'
+
 /**
  *
  * @type {string}
@@ -10,13 +12,49 @@ const FONT_URL = 'https://fonts.googleapis.com/css?family=Raleway:400,500,600,70
 
 /**
  *
+ * @type {Array<Array>}
+ */
+const fontWeigthMap = [
+  [ 100, 'thin' ],
+  [ 200, 'extralight' ],
+  [ 300, 'light' ],
+  [ 400, 'regular' ],
+  [ 500, 'medium' ],
+  [ 600, 'semibold' ],
+  [ 700, 'bold' ],
+  [ 800, 'extrabold' ],
+  [ 900, 'heavy' ]
+]
+
+/**
+ *
+ * @type {string}
+ */
+const fontBasePath = chrome.extension.getURL('/fonts')
+
+/**
+ *
+ * @param {number} weight
+ * @param {string} name
+ * @returns {string}
+ */
+const fontFaceTemplate = (weight, name) => {
+  return `@font-face {
+            font-family: 'Raleway';
+            src: url('${fontBasePath}/raleway-${name}.woff') format('woff');
+            font-weight: ${weight};
+            font-style: normal;
+          }`
+}
+
+/**
+ *
  * @param {HTMLElement} body
  */
 export function injectFonts (body) {
-  let $font = document.createElement('link')
+  const css = fontWeigthMap
+    .map((item) => fontFaceTemplate(item[ 0 ], item[ 1 ]))
+    .join('')
 
-  $font.rel = 'stylesheet'
-  $font.href = FONT_URL
-
-  body.appendChild($font)
+  body.appendChild(createCssImport(document, css))
 }
