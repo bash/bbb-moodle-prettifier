@@ -68,9 +68,9 @@ build/$(TARGET)/html/options.html: html/options.html
 	@mkdir -p $(@D)
 	cat $+ > $@
 
-build/$(TARGET)/manifest.json: manifest.json
+build/$(TARGET)/manifest.json: manifest.json manifests/$(TARGET).json
 	@mkdir -p $(@D)
-	cat $+ > $@
+	./scripts/transform.js $+ > $@
 
 build/$(TARGET)/fonts/%: fonts/%
 	@mkdir -p $(@D)

@@ -3,17 +3,13 @@
   "name": "BBB Moodle Prettifier",
   "short_name": "Moodle Prettifier",
   "homepage_url": "https://github.com/bash/bbb-moodle-prettifier",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "description": "🌟 it will make your ugly moodle shine",
   "permissions": [
     "https://moodle.bbbaden.ch/*",
     "https://moodle-stage.bbbaden.ch/*",
     "http://moodle.bbbaden.ch/*",
-    "background",
     "storage",
-    "downloads"
-  ],
-  "optional_permissions": [
     "downloads"
   ],
   "content_scripts": [
@@ -43,16 +39,8 @@
     "default_popup": "html/options.html"
   },
   "background": {
-    "persistent": false,
     "scripts": [
       "js/background.js"
     ]
-  },
-  "applications": {
-    "gecko": {
-      "id": "bbb-moodle-prettifier@rubys.ninja",
-      "strict_min_version": "42.0",
-      "strict_max_version": "50.*"
-    }
   }
 }

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "$push": "background"
+  },
+  "background": {
+    "persistent": {
+      "$set": false
+    }
+  }
+}
