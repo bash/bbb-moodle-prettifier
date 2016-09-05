@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ -z "${1}" ]; then
+  echo "Usage ${0} <chrome|firefox|opera>"
+  exit 1
+fi
+
 TARGET="${1}"
 BUILD_PACKAGE="dist/mdl-prettifier-build-${TARGET}.zip"
 SRC_PACKAGE="dist/mdl-prettifier-src-${TARGET}.zip"
