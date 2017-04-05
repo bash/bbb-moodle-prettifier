@@ -13,7 +13,7 @@ const fontWeigthMap = [
   [ 200, 'extralight' ],
   [ 300, 'light' ],
   [ 400, 'regular' ],
-  [ 500, 'medium' ],
+  // [ 500, 'medium' ],
   [ 600, 'semibold' ],
   [ 700, 'bold' ],
   [ 800, 'extrabold' ],
@@ -34,8 +34,8 @@ const fontBasePath = chrome.extension.getURL('/fonts')
  */
 const fontFaceTemplate = (weight, name) => {
   return `@font-face {
-            font-family: 'Raleway';
-            src: url('${fontBasePath}/raleway-${name}.woff') format('woff');
+            font-family: 'Overpass';
+            src: url('${fontBasePath}/overpass-${name}.woff2') format('woff2');
             font-weight: ${weight};
             font-style: normal;
           }`
