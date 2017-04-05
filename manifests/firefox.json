@@ -3,8 +3,7 @@
     "$set": {
       "gecko": {
         "id": "bbb-moodle-prettifier@rubys.ninja",
-        "strict_min_version": "42.0",
-        "strict_max_version": "51.*"
+        "strict_min_version": "52.0"
       }
     }
   }

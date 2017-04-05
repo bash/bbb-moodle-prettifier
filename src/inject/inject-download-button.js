@@ -2,7 +2,7 @@
  * (c) 2015 Ruben Schmidmeister
  */
 
-const solutionFilesFilter = ($) => $.textContent.match(/(lösung)|(_l)|(\-l)/i)
+const solutionFilesFilter = ($) => $.textContent.match(/(lösung)|(_l)|(-l)/i)
 const allFilesFilter = () => true
 
 /**

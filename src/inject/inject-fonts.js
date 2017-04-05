@@ -6,12 +6,6 @@ import { createCssImport } from '../helpers/create-css-import'
 
 /**
  *
- * @type {string}
- */
-const FONT_URL = 'https://fonts.googleapis.com/css?family=Raleway:400,500,600,700'
-
-/**
- *
  * @type {Array<Array>}
  */
 const fontWeigthMap = [

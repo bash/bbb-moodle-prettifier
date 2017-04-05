@@ -17,6 +17,10 @@ if (isProduction) {
 
 export default {
   plugins: plugins,
+  acorn: {
+    ecmaVersion: 8,
+    allowReserved: true
+  },
   sourceMap: !isProduction,
   format: 'iife'
 }
