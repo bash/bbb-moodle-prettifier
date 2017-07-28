@@ -20,11 +20,14 @@ export function awaitBody () {
         return done()
       }
 
-      mutations
+      const body = mutations
         .map((mutation) => Array.from(mutations.addedNodes || []))
         .reduce(flatten, [])
-        .filter((node) => node.tagName === 'BODY')
-        .forEach(done)
+        .find((node) => node.tagName === 'BODY')
+
+      if (body) {
+        done()
+      }
     })
 
     observer.observe(document, { childList: true, subtree: true })

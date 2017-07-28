@@ -7,24 +7,22 @@ import { handleWrite } from '../background/handle-write'
 
 /**
  *
- * @param {chrome.storage.StorageArea} storage
- * @param {Map} runtimeStorage
+ * @param {StorageCache} storage
  * @param {MessageBackend} messageBackend
  * @param {string} key
  * @param {string} value
  */
-function write (storage, runtimeStorage, messageBackend, key, value) {
-  handleWrite(key, value, storage, runtimeStorage, messageBackend)
+function write (storage, messageBackend, key, value) {
+  handleWrite(key, value, storage, messageBackend)
 }
 
 /**
  *
- * @param {chrome.storage.StorageArea} storage
- * @param {Map} runtimeStorage
+ * @param {StorageCache} storage
  * @param {MessageBackend} messageBackend
  */
-export default function (storage, runtimeStorage, messageBackend) {
+export default function (storage, messageBackend) {
   return {
-    write: wrapFunction(write, storage, runtimeStorage, messageBackend)
+    write: wrapFunction(write, storage, messageBackend)
   }
 }

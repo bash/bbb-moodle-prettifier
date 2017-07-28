@@ -8,10 +8,9 @@ import { defaultColor } from '../value/color'
  *
  * @param {string} key
  * @param {StorageCache} storage
- * @param {Map} runtimeStorage
  * @param {MessageBackend} messageBackend
  */
-export function handleGet (key, storage, runtimeStorage, messageBackend) {
+export function handleGet (key, storage, messageBackend) {
   if (key === 'color') {
     return storage
       .get('color', defaultColor.toString())

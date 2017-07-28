@@ -1,6 +1,6 @@
 {
   "permissions": {
-    "$push": "background"
+    "$concat": ["background", "tabs"]
   },
   "background": {
     "persistent": {

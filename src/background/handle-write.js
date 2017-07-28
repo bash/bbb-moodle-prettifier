@@ -7,10 +7,9 @@
  * @param {string} key
  * @param {*} value
  * @param {StorageCache} storage
- * @param {Map} runtimeStorage
  * @param {MessageBackend} messageBackend
  */
-export function handleWrite (key, value, storage, runtimeStorage, messageBackend) {
+export function handleWrite (key, value, storage, messageBackend) {
   if (key === 'color') {
     storage.set('color', value)
     messageBackend.pushColor(value)

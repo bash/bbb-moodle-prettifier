@@ -51,25 +51,11 @@ export class DataBackend extends Emitter {
   }
 
   showPageAction () {
-    this.port.postMessage({ action: 'command', command: 'showPageAction' })
+    this.port.postMessage({ action: 'showPageAction' })
   }
 
-  /**
-   *
-   * @param {string} key
-   * @returns {Promise}
-   * @private
-   */
-  _get (key) {
-    return new Promise((resolve) => {
-      let listener = (value) => {
-        this.off(key, listener)
-        resolve(value)
-      }
-
-      this.on(key, listener)
-      this._pushGet(key)
-    })
+  requestCss () {
+    this.port.postMessage({ action: 'requestCss' })
   }
 
   /**
@@ -86,6 +72,6 @@ export class DataBackend extends Emitter {
    * @param {Array<string>} urls
    */
   download (urls) {
-    this.port.postMessage({ action: 'command', command: 'download', params: urls })
+    this.port.postMessage({ action: 'download', urls })
   }
 }

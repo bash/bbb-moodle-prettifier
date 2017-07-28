@@ -8,7 +8,6 @@ import { ColorPreview } from './elements/color-preview'
 import { HexInput } from './elements/hex-input'
 
 import { updateColor } from './inject/update-color'
-import { injectFonts } from './inject/inject-fonts'
 
 let dataBackend = new DataBackend(chrome.runtime.connect())
 
@@ -20,5 +19,4 @@ document.registerElement('hex-input', HexInput(dataBackend))
 
 document.addEventListener('DOMContentLoaded', () => {
   dataBackend.pushGetColor()
-  injectFonts(document.head)
 })

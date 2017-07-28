@@ -5,6 +5,23 @@
 const solutionFilesFilter = ($) => $.textContent.match(/(lösung)|(_l)|(-l)/i)
 const allFilesFilter = () => true
 
+const head = (url) => {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest()
+
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === XMLHttpRequest.HEADERS_RECEIVED) {
+        resolve({ url: xhr.responseURL, status: xhr.status })
+      }
+    }
+
+    xhr.onerror = reject
+
+    xhr.open('HEAD', url)
+    xhr.send()
+  })
+}
+
 /**
  *
  * @param {HTMLDocument} document
@@ -15,7 +32,16 @@ function getDownloadLinks (document, filterFn) {
   return Array.from(document.querySelectorAll('a'))
     .filter(($) => $.pathname === '/mod/resource/view.php')
     .filter(filterFn)
-    .map(($) => $.href)
+    .map(($) => {
+      console.info('fetching url', $.href)
+      return head($.href)
+        .then((resp) => {
+          const url = new window.URL(resp.url)
+          const filename = url.pathname.split('/').pop()
+
+          return { url: resp.url, filename }
+        })
+    })
 }
 
 /**
@@ -24,16 +50,19 @@ function getDownloadLinks (document, filterFn) {
  * @param {DataBackend} dataBackend
  * @param {string}  label
  * @param {Function} filterFn
- * @returns {HTMLButtonElement}
+ * @returns {HTMLElement}
  */
 function createDownloadButton (document, dataBackend, label, filterFn) {
-  let $button = document.createElement('button')
+  const $button = document.createElement('button')
 
   $button.innerText = label
   $button.className = 'mdl-course-download-button -no-inline'
 
   $button.addEventListener('click', () => {
-    dataBackend.download(getDownloadLinks(document, filterFn))
+    getDownloadLinks(document, filterFn)
+      .forEach((download) => {
+        download.then((download) => dataBackend.download([download]))
+      })
   })
 
   return $button
@@ -49,14 +78,15 @@ export function injectDownloadButton (document, dataBackend) {
     return
   }
 
-  let $content = document.querySelector('.course-content')
+  const $content = document.querySelector('.course-content')
 
+  // noinspection EqualityComparisonWithCoercionJS
   if ($content == null) {
     return
   }
 
-  let $button1 = createDownloadButton(document, dataBackend, 'Download All Files', allFilesFilter)
-  let $button2 = createDownloadButton(document, dataBackend, 'Download Solution Files', solutionFilesFilter)
+  const $button1 = createDownloadButton(document, dataBackend, 'Download All Files', allFilesFilter)
+  const $button2 = createDownloadButton(document, dataBackend, 'Download Solution Files', solutionFilesFilter)
 
   $content.insertBefore($button2, $content.firstChild)
   $content.insertBefore($button1, $button2)

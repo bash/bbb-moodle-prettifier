@@ -7,7 +7,7 @@ const argv = process.argv.slice(2)
 
 const source = JSON.parse(fs.readFileSync(argv[ 0 ], 'utf8'))
 const transformation = JSON.parse(fs.readFileSync(argv[ 1 ], 'utf8'))
-const actions = [ '$push', '$set' ]
+const actions = [ '$push', '$set', '$concat' ]
 
 /**
  * 
@@ -38,6 +38,20 @@ const $push = (result, key, value) => {
 
 /**
  *
+ * @param {{}} result
+ * @param {string} key
+ * @param {{ $push: * }} value
+ */
+const $concat = (result, key, value) => {
+  if (!Array.isArray(result[ key ])) {
+    result[ key ] = []
+  }
+
+  result[ key ].concat(value[ '$concat' ])
+}
+
+/**
+ *
  * @param {string} action
  * @param {{}} result
  * @param {string} key
@@ -49,6 +63,8 @@ const performAction = (action, result, key, value) => {
       return $push(result, key, value)
     case '$set':
       return result[ key ] = value[ '$set' ]
+    case '$concat':
+      return $concat(result, key, value)
   }
 }
 

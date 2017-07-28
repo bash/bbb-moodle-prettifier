@@ -2,8 +2,6 @@
  * (c) 2015 Ruben Schmidmeister
  */
 
-import { createCssImport } from '../helpers/create-css-import'
-
 /**
  *
  * @type {Array<Array>}
@@ -43,12 +41,10 @@ const fontFaceTemplate = (weight, name) => {
 
 /**
  *
- * @param {HTMLElement} body
+ * @returns {string}
  */
-export function injectFonts (body) {
-  const css = fontWeigthMap
-    .map((item) => fontFaceTemplate(item[ 0 ], item[ 1 ]))
+export function generateFontsCss () {
+  return fontWeigthMap
+    .map((item) => fontFaceTemplate(...item))
     .join('')
-
-  body.appendChild(createCssImport(document, css))
 }
